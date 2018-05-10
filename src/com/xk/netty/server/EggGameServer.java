@@ -8,8 +8,12 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.http.HttpObjectAggregator;
+import io.netty.handler.codec.http.HttpServerCodec;
+import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.stream.ChunkedWriteHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import io.netty.util.concurrent.EventExecutorGroup;
 
@@ -40,6 +44,10 @@ public class EggGameServer {
                             pipeline.addLast(MarshallingCodeFactory.buildMarshallingEncoder());
                             //注册处理器
                             pipeline.addLast(group, "RegisterHandler", new RegisterHandler());
+
+//                            pipeline.addLast(new HttpServerCodec());
+//                            pipeline.addLast(new HttpObjectAggregator(65536));
+//                            pipeline.addLast(new ChunkedWriteHandler());
 
                         }
                     });
