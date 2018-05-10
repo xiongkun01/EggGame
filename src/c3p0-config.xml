@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+    <!--默认配置-->
+    <default-config>
+        <property name="initialPoolSize">10</property>
+        <property name="maxIdleTime">30</property>
+        <property name="maxPoolSize">100</property>
+        <property name="minPoolSize">10</property>
+        <property name="maxStatements">200</property>
+    </default-config>
+
+    <!--配置连接池mysql-->
+    <named-config name="mysql">
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/egg_game?serverTimezone=UTC</property>
+        <property name="user">root</property>
+        <property name="password">123456</property>
+        <!--initialPoolSize：初始化时获取三个连接，取值应在minPoolSize与maxPoolSize之间。 -->
+        <property name="initialPoolSize">10</property>
+        <!--maxIdleTime：最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。-->
+        <property name="maxIdleTime">30</property>
+        <!--maxPoolSize：连接池中保留的最大连接数。 -->
+        <property name="maxPoolSize">100</property>
+        <property name="minPoolSize">10</property>
+        <!--maxStatements：最大链接数。-->
+        <property name="maxStatements">200</property>
+        <!--acquireIncrement：链接用完了自动增量4个。 -->
+        <property name="acquireIncrement">4</property>
+    </named-config>
+
+    <!--配置连接池2-->
+
+    <!--配置连接池3-->
+
+    <!--配置连接池4-->
+
+</c3p0-config>
